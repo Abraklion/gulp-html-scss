@@ -5,6 +5,7 @@ global.$ = {
   gp: require('gulp-load-plugins')(),
   browserSync: require('browser-sync').create(),
   panini: require('panini'),
+  del: require('del'),
 
   config: {
     src: require('./gulp/config'),
@@ -50,3 +51,10 @@ global.$ = {
 $.config.src.forEach(function (path) {
   require(path)();
 });
+
+const build = $.gulp.series('clean', $.gulp.parallel('html'));
+const watch = $.gulp.series(build, $.gulp.parallel('serve', 'watcher'));
+
+exports.build = build;
+exports.watch = watch;
+exports.default = watch;
