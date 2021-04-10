@@ -6,7 +6,7 @@ module.exports = function () {
 
     $.panini.refresh();
 
-    return $.gulp.src($.config.paths.html)
+    return $.gulp.src($.config.paths.html, { base: "src/" })
       .pipe($.gp.plumber())
       .pipe($.panini({
         root: 'src/',
@@ -24,3 +24,4 @@ module.exports = function () {
       .pipe($.browserSync.stream());
   });
 }
+
