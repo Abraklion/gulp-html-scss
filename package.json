@@ -1,0 +1,34 @@
+{
+  "name": "gulp-html-scss",
+  "version": "1.0.0",
+  "description": "Сборка работает на HTML и препроцессоре SCSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abraklion/gulp-html-scss.git"
+  },
+  "keywords": [
+    "Сборка GULP",
+    "Сборка GULP SCSS",
+    "Сборка GULP HTML SCSS"
+  ],
+  "author": "Nikolay Kuznetsov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abraklion/gulp-html-scss/issues"
+  },
+  "homepage": "https://github.com/Abraklion/gulp-html-scss#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-load-plugins": "^2.0.6",
+    "gulp-plumber": "^1.2.1",
+    "panini": "^1.7.1"
+  }
+}
