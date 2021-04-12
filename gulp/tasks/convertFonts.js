@@ -9,4 +9,4 @@ module.exports = function () {
       .pipe($.gp.ttf2woff2())
       .pipe($.gulp.dest($.config.paths.fonts));
   });
-};
+}

@@ -6,4 +6,5 @@ module.exports = [
   './gulp/tasks/watcher',
   './gulp/tasks/clean',
   './gulp/tasks/convertFonts',
+  './gulp/tasks/fonts',
 ];

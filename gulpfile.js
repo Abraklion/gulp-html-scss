@@ -43,7 +43,8 @@ global.$ = {
         img: 'src/assets/img/*.{jpg,png,gif,svg,ico,webp}',
         webp: 'src/assets/img/webp/*.{jpg,png,gif}',
         svg: 'src/assets/img/svg/**/*.svg'
-      }
+      },
+      fonts: 'src/assets/fonts/'
     }
   }
 }
@@ -52,7 +53,7 @@ $.config.src.forEach(function (path) {
   require(path)();
 });
 
-const build = $.gulp.series('clean', $.gulp.parallel('html'));
+const build = $.gulp.series('clean', $.gulp.parallel('html','fonts'));
 const watch = $.gulp.series(build, $.gulp.parallel('serve', 'watcher'));
 
 exports.build = build;
