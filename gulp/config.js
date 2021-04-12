@@ -5,4 +5,5 @@ module.exports = [
   './gulp/tasks/server',
   './gulp/tasks/watcher',
   './gulp/tasks/clean',
+  './gulp/tasks/convertFonts',
 ];
