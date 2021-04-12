@@ -7,4 +7,6 @@ module.exports = [
   './gulp/tasks/clean',
   './gulp/tasks/convertFonts',
   './gulp/tasks/fonts',
+  './gulp/tasks/images',
+  './gulp/tasks/sprite',
 ];

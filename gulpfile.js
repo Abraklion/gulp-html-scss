@@ -24,7 +24,7 @@ global.$ = {
       images: {
         img: 'src/assets/img/',
         webp: 'src/assets/img/webp/',
-        svg: 'src/assets/img/svg/**/*.svg'
+        svg: 'src/assets/img/sprite/**/*.svg'
       },
       fonts: 'src/assets/fonts/'
     },
@@ -42,7 +42,7 @@ global.$ = {
       images: {
         img: 'src/assets/img/*.{jpg,png,gif,svg,ico,webp}',
         webp: 'src/assets/img/webp/*.{jpg,png,gif}',
-        svg: 'src/assets/img/svg/**/*.svg'
+        svg: 'src/assets/img/sprite/**/*.svg'
       },
       fonts: 'src/assets/fonts/'
     }
@@ -53,9 +53,10 @@ $.config.src.forEach(function (path) {
   require(path)();
 });
 
-const build = $.gulp.series('clean', $.gulp.parallel('html','fonts'));
+const build = $.gulp.series('clean', $.gulp.parallel('html','fonts','images','sprite'));
 const watch = $.gulp.series(build, $.gulp.parallel('serve', 'watcher'));
 
 exports.build = build;
 exports.watch = watch;
+
 exports.default = watch;
