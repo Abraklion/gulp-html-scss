@@ -15,6 +15,10 @@ module.exports = function () {
       .pipe($.gp.webp({quality: 80}))
       .pipe($.gulp.dest($.config.output.pathImg));
 
+    // Просто переносит gif,ico,webp
+    $.gulp.src($.config.paths.images.img + '*.{gif,ico,webp}')
+      .pipe($.gulp.dest($.config.output.pathImg));
+
     return $.gulp.src([$.config.paths.images.img + '*.{jpg,png,svg}', $.config.paths.images.webp + '*.{jpg,png}'])
 
       // Минифицирует и переносит
@@ -29,10 +33,5 @@ module.exports = function () {
         })
       ])))
       .pipe($.gulp.dest($.config.output.pathImg))
-
-      // Просто переносит gif,ico,webp
-      .pipe($.gulp.src($.config.paths.images.img + '*.{gif,ico,webp}'))
-      .pipe($.gulp.dest($.config.output.pathImg));
-
   });
 }
