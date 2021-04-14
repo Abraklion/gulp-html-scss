@@ -4,6 +4,7 @@ global.$ = {
   gulp: require('gulp'),
   gp: require('gulp-load-plugins')(),
   browserSync: require('browser-sync').create(),
+  autoprefixer: require('autoprefixer'),
   panini: require('panini'),
   del: require('del'),
 
@@ -15,6 +16,7 @@ global.$ = {
       fullCss: false, // true / false
       fullJs: false, // true / false
       resizeImg: false, // true / false
+      mediaEndFile: false, // true / false
     },
 
     paths: {
@@ -53,7 +55,7 @@ $.config.src.forEach(function (path) {
   require(path)();
 });
 
-const build = $.gulp.series('clean', $.gulp.parallel('html','fonts','images','sprite'));
+const build = $.gulp.series('clean', $.gulp.parallel('html','styles','fonts','images','sprite'));
 const watch = $.gulp.series(build, $.gulp.parallel('serve', 'watcher'));
 
 exports.build = build;
