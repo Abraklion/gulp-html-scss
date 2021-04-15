@@ -55,7 +55,7 @@ $.config.src.forEach(function (path) {
   require(path)();
 });
 
-const build = $.gulp.series('clean', $.gulp.parallel('html','styles','fonts','images','sprite'));
+const build = $.gulp.series('clean', $.gulp.parallel('html','styles','scripts','fonts','images','sprite'));
 const watch = $.gulp.series(build, $.gulp.parallel('serve', 'watcher'));
 
 exports.build = build;
