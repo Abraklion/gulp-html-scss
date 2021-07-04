@@ -19,7 +19,7 @@ module.exports = function () {
         "indent_size": 4,
         "max_preserve_newlines": 1
       }))
-      .pipe($.gp.if($.config.toggle.fullHtml, $.gp.htmlmin({ collapseWhitespace: true })))
+      .pipe($.gp.if($.config.toggle.minHtml, $.gp.htmlmin({ collapseWhitespace: true })))
       .pipe($.gulp.dest($.config.output.path))
       .pipe($.browserSync.stream());
   });
