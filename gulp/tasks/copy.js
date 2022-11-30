@@ -1,4 +1,5 @@
-// Переносит файлы разного назначения в папку dist
+// copy - переносит файлы разного назначения в папку dist
+// copyTopLevel - из папки dist на верхний уровень
 
 module.exports = function () {
 
@@ -8,9 +9,19 @@ module.exports = function () {
       $.config.paths.other + '*.ico',
       $.config.paths.other + '*.webmanifest'
     ], {
-      base: 'src/other'
+      base: 'src/assets/other'
     })
-
       .pipe($.gulp.dest($.config.output.path))
+
+  });
+
+  $.gulp.task('copyTopLevel', () => {
+
+    return $.gulp.src([
+      $.config.output.path + '/**',
+      '!' + $.config.output.path + '/*.{html,ico,webmanifest}',
+    ])
+      .pipe($.gulp.dest($.config.output.templates))
+
   });
 }

@@ -1,0 +1,198 @@
+@use "../general/variables" as v;
+@use "../general/mixins" as m;
+
+// region " 1 Со всех сторон "
+
+.m {
+  @include m.rulesBreakpoint(v.$container,(
+          margin: 0
+  ),'0');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin: 16px
+  ),'16');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin: 24px
+  ),'24');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin: 32px
+  ),'32');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin: auto
+  ),'auto');
+}
+
+// endregion
+
+// region " 2 Лево - Право "
+
+.mx {
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: 0,
+          margin-right: 0
+  ),'0');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: 16px,
+          margin-right: 16px
+  ),'16');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: 24px,
+          margin-right: 24px
+  ),'24');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: 32px,
+          margin-right: 32px
+  ),'32');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: auto,
+          margin-right: auto
+  ),'auto');
+}
+
+// endregion
+
+// region " 3 Верх - Низ "
+
+.my {
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: 0,
+          margin-bottom: 0
+  ),'0');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: 16px,
+          margin-bottom: 16px
+  ),'16');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: 24px,
+          margin-bottom: 24px
+  ),'24');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: 32px,
+          margin-bottom: 32px
+  ),'32');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: auto,
+          margin-bottom: auto
+  ),'auto');
+
+}
+
+// endregion
+
+// region " 4 Лево "
+
+.ml {
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: 0
+  ),'0');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: 16px
+  ),'16');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: 24px
+  ),'24');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: 32px
+  ),'32');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-left: auto
+  ),'auto');
+}
+
+// endregion
+
+// region " 5 Право "
+
+.mr {
+  @include m.rulesBreakpoint(v.$container,(
+          margin-right: 0
+  ),'0');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-right: 16px
+  ),'16');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-right: 24px
+  ),'24');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-right: 32px
+  ),'32');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-right: auto
+  ),'auto');
+}
+
+// endregion
+
+// region " 6 Верх "
+
+.mt {
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: 0
+  ),'0');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: 16px
+  ),'16');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: 24px
+  ),'24');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: 32px
+  ),'32');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-top: auto
+  ),'auto');
+}
+
+// endregion
+
+// region " 7 Низ "
+
+.mb {
+  @include m.rulesBreakpoint(v.$container,(
+          margin-bottom: 0
+  ),'0');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-bottom: 16px
+  ),'16');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-bottom: 24px
+  ),'24');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-bottom: 32px
+  ),'32');
+
+  @include m.rulesBreakpoint(v.$container,(
+          margin-bottom: auto
+  ),'auto');
+}
+
+// endregion
+
+
+

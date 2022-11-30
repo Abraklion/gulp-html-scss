@@ -1,0 +1,36 @@
+@use "../general/variables" as v;
+@use "../general/mixins" as m;
+
+// region " 1 Область просмотра "
+
+.vh {
+  @include m.rulesBreakpoint(v.$container,(
+          height: 100vh
+  ),'100');
+
+  @include m.rulesBreakpoint(v.$container,(
+          height: 50vh
+  ),'50');
+}
+
+// endregion
+
+// region " 2 Проценты "
+
+.h {
+
+  @include m.rulesBreakpoint(v.$container,(
+          height: 100%
+  ),'100');
+
+  @include m.rulesBreakpoint(v.$container,(
+          height: 50%
+  ),'50');
+
+  @include m.rulesBreakpoint(v.$container,(
+          height: auto
+  ),'auto');
+
+}
+
+// endregion

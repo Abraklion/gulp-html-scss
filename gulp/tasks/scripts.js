@@ -1,23 +1,38 @@
-// Обьединяет js файлы в один и переносит файл в папку dist/assets/js
+// Обьединяет js файлы в один и переносит файл в папку dist/js
 
 module.exports = function () {
 
-  $.gulp.task('scripts', () => {
+  $.gulp.task("scripts", () => {
 
-    return $.gulp.src($.config.paths.js)
-
-      .pipe($.gp.plumber())
-      .pipe($.gp.rigger())
-      .pipe($.gp.if($.config.toggle.fullJs, $.gulp.dest($.config.output.pathJs)))
-
-      .pipe($.gp.sourcemaps.init())
-      .pipe($.gp.uglify())
-      .pipe($.gp.rename({
-        suffix: ".min",
-        extname: ".js"
+    return $.gulp.src($.config.paths.js + '*.js')
+      .pipe($.webpack({
+        mode: $.config.toggle.mode,
+        output: {
+          filename: '[name].js'
+        },
+        watch: false,
+        devtool: 'source-map',
+        module: {
+          rules: [
+            {
+              test: /\.m?js$/,
+              exclude: /(node_modules|bower_components)/,
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  presets: [['@babel/preset-env', {
+                    debug: true,
+                    corejs: 3,
+                    useBuiltIns: "usage"
+                  }]]
+                }
+              }
+            }
+          ]
+        }
       }))
-      .pipe($.gp.sourcemaps.write(''))
       .pipe($.gulp.dest($.config.output.pathJs))
-      .pipe($.browserSync.stream());
+      .on("end", $.browserSync.reload);
+
   });
 }

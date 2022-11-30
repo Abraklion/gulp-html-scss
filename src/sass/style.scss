@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+// Настройка с библиотекой
+
+// Библиотека
+@use "library/my-bootstrap";
+
+// Шрифты
+@use "fonts";
+
+// Блоки
+
+
+// Настройка без библиотеки
+
+// Шрифты
+//@use "fonts";
+
+// Нормализация css
+//@use "normalize";
+
+// Анимации
+//@use 'animations';
+
+// Базовые настройки
+//@use "core";
+
+// Блоки
+//@use "components/container";
+
+
+

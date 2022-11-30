@@ -1,0 +1,46 @@
+@use "../general/variables" as v;
+@use "../general/mixins" as m;
+
+// region " 1 Со всех сторон "
+
+.f{
+  @include m.rulesBreakpoint(v.$container,(
+          justify-content: center,
+          align-items: center
+  ),'center');
+}
+
+// endregion
+
+// region " 2 По горизонтали "
+
+.f-justify-content{
+  @include m.rulesBreakpoint(v.$container,(
+          justify-content: center
+  ),'center');
+
+  @include m.rulesBreakpoint(v.$container,(
+          justify-content: space-between
+  ),'between');
+
+  @include m.rulesBreakpoint(v.$container,(
+          justify-content: space-around
+  ),'around');
+
+  @include m.rulesBreakpoint(v.$container,(
+          justify-content: space-evenly
+  ),'evenly');
+}
+
+// endregion
+
+
+// region " 3 По вертикали "
+
+.f-align-items{
+  @include m.rulesBreakpoint(v.$container,(
+          align-items: center
+  ),'center');
+}
+
+// endregion

@@ -1,19 +1,23 @@
+@use "variables" as v;
+@use "mixins" as m;
 
 //-----===== Базовые настройки ====-----//
 
 html{
-  font-size: $font-size-basic;
-  line-height: $line-height-basic;
+  font-size: v.$font-size-basic;
+  line-height: v.$line-height-basic;
 }
 
 body {
   min-width: 320px;
 
-  font-style: $font-style-basic;
-  font-weight: $font-weight-basic;
-  font-family: $font-family-basic;
+  background-color: v.$white;
 
-  color: $black;
+  font-style: v.$font-style-basic;
+  font-weight: v.$font-weight-basic;
+  font-family: v.$font-family-basic;
+
+  color: v.$black;
 
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -31,8 +35,7 @@ img {
   height: auto;
 }
 
-//-----===== Служебные класы - начало ====-----//
-
+// служебные класы
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -49,5 +52,3 @@ img {
   clip-path: inset(100%);
   clip: rect(0, 0, 0, 0);
 }
-
-//-----===== Служебные класы - конец ====-----//

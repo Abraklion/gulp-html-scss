@@ -1,0 +1,12 @@
+@use "../general/variables" as v;
+@use "../general/mixins" as m;
+
+.visibility {
+  @include m.rulesBreakpoint(v.$container,(
+          visibility: hidden
+  ),'hidden');
+
+  @include m.rulesBreakpoint(v.$container,(
+          visibility: visible
+  ),'visible');
+}

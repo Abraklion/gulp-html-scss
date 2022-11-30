@@ -3,52 +3,54 @@
 global.$ = {
   gulp: require('gulp'),
   gp: require('gulp-load-plugins')(),
-  browserSync: require('browser-sync').create(),
+  webpack: require("webpack-stream"),
+  browserSync: require('browser-sync'),
   autoprefixer: require('autoprefixer'),
   panini: require('panini'),
+  sass: require("gulp-sass")(require('sass')),
   del: require('del'),
 
   config: {
     src: require('./gulp/config'),
 
     toggle: {
-      minHtml: false, // true / false
-      fullCss: false, // true / false
-      fullJs: false, // true / false
-      resizeImg: false, // true / false
-      mediaEndFile: false, // true / false
+      mode: 'development', // development / production
+      minHtml: false,      // true / false
+      fullCss: false,      // true / false
+      resizeImg: false,    // true / false
     },
 
     paths: {
       html: 'src/*.html',
-      css: 'src/assets/sass/*.scss',
-      js: 'src/assets/js/*.js',
+      css: 'src/sass/*.scss',
+      js: './src/js/',
       images: {
         img: 'src/assets/img/',
         webp: 'src/assets/img/webp/',
         svg: 'src/assets/img/sprite/**/*.svg'
       },
       fonts: 'src/assets/fonts/',
-      other: 'src/other/'
+      other: 'src/assets/other/'
     },
     output: {
       path: 'dist',
       pathCss: 'dist/assets/css/',
-      pathJs: 'dist/assets/js/',
+      pathJs: 'dist/js/',
       pathImg: 'dist/assets/img/',
-      pathFonts: 'dist/assets/fonts/'
+      pathFonts: 'dist/assets/fonts/',
+      templates: '../templates',
     },
     watch: {
       html: 'src/**/*.html',
-      css: 'src/assets/sass/**/*.scss',
-      js: 'src/assets/js/**/*.js',
+      css: 'src/sass/**/*.scss',
+      js: 'src/js/**/*.js',
       images: {
         img: 'src/assets/img/*.{jpg,png,gif,svg,ico,webp}',
         webp: 'src/assets/img/webp/*.{jpg,png,gif}',
         svg: 'src/assets/img/sprite/**/*.svg'
       },
       fonts: 'src/assets/fonts/',
-      other: 'src/other/'
+      other: 'src/assets/other/'
     }
   }
 }

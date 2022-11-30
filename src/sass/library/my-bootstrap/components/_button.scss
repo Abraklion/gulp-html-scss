@@ -1,0 +1,108 @@
+@use "../general/variables" as v;
+@use "../general/mixins" as m;
+
+.btn {
+
+  @include m.btn(v.$primary, v.$white){
+    display: inline-block;
+    vertical-align: middle;
+
+    padding: 10px 20px;
+
+    background-color: transparent;
+
+    font-weight: 400;
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: v.$dark;
+
+    text-align: center;
+
+    outline: none;
+    border: 1px solid v.$primary;
+    border-radius: 4px;
+
+    box-shadow: none;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+  };
+
+  &-primary {
+    @include m.btn(v.$primary, v.$white){
+      background-color: v.$primary;
+      border-color: v.$primary;
+      color: #fff;
+    }
+  }
+
+  &-success {
+    @include m.btn(v.$success, v.$white){
+      background-color: v.$success;
+      border-color: v.$success;
+      color: #fff;
+    }
+  }
+
+  &-danger {
+    @include m.btn(v.$danger, v.$white){
+      background-color: v.$danger;
+      border-color: v.$danger;
+      color: #fff;
+    }
+  }
+
+  &-warning {
+    @include m.btn(v.$warning, v.$white){
+      background-color: v.$warning;
+      border-color: v.$warning;
+      color: #fff;
+    }
+  }
+
+  &-dark {
+    @include m.btn(v.$dark, v.$white){
+      background-color: v.$dark;
+      border-color: v.$dark;
+      color: #fff;
+    }
+  }
+
+  &-outline-primary {
+    @include m.btn(v.$primary, v.$white){
+      border-color: v.$primary;
+      color: v.$primary;
+    }
+  }
+
+  &-outline-success {
+    @include m.btn(v.$success, v.$white){
+      border-color: v.$success;
+      color: v.$success;
+    }
+  }
+
+  &-outline-danger {
+    @include m.btn(v.$danger, v.$white){
+      border-color: v.$danger;
+      color: v.$danger;
+    }
+  }
+
+  &-outline-warning {
+    @include m.btn(v.$warning, v.$white){
+      border-color: v.$warning;
+      color: v.$warning;
+    }
+  }
+
+  &-outline-dark {
+    @include m.btn(v.$dark, v.$white){
+      border-color: v.$dark;
+      color: v.$dark;
+    }
+  }
+}

@@ -1,3 +1,0 @@
-/*
-*   // = components/nameFile.js
-*/

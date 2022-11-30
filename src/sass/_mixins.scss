@@ -1,0 +1,462 @@
+@use "variables" as v;
+@use "function" as f;
+
+@use "sass:map";
+@use "sass:meta";
+
+//-----===== Миксины ====-----//
+
+// контейнер
+@mixin container($container, $width-container: v.$width-container, $orientation: v.$orientation) {
+
+  $z: 0;
+  $route: 'min';
+
+  @if $orientation == 'desktop-first' {
+    $z: 1;
+    $route: 'max';
+  }
+
+  .container {
+    width: 100%;
+
+    @if $orientation == 'desktop-first' {
+      max-width: $width-container;
+    }
+
+    padding: 0 12px;
+    margin: 0 auto;
+
+    box-sizing: border-box;
+
+    @each $key, $val in $container {
+
+      @media (#{$route}-width: map.get($val, "breakpoint") - $z) {
+        max-width: map.get($val, "max-width");
+      }
+
+    }
+  }
+
+}
+
+@mixin grid($container, $orientation: v.$orientation) {
+
+  $z: 0;
+  $route: 'min';
+
+  @if $orientation == 'desktop-first' {
+    $z: 1;
+    $route: 'max';
+  }
+
+  // 1 Ряд
+  .row {
+    --bs-gutter-x: 24px;
+    --bs-gutter-y: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+
+    & > * {
+      box-sizing: border-box;
+
+      flex-shrink: 0;
+
+      width: 100%;
+      max-width: 100%;
+
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+
+      margin-top: var(--bs-gutter-y);
+    }
+
+    &-cols{
+
+      &-auto > * {
+        flex: 0 0 auto;
+        width: auto;
+      }
+
+      @each $key, $val in $container {
+
+        &-#{$key}-auto > * {
+          @media (#{$route}-width: map.get($val, "breakpoint") - $z) {
+            flex: 0 0 auto;
+            width: auto;
+          }
+        }
+
+      }
+
+      @for $i from 1 through 6 {
+
+        &-#{$i} > * {
+          flex: 0 0 auto;
+          width: f.fun-divide($i);
+        }
+
+        @each $key, $val in $container {
+
+          &-#{$key}-#{$i} > * {
+            @media (#{$route}-width: map.get($val, "breakpoint") - $z) {
+              flex: 0 0 auto;
+              width: f.fun-divide($i);
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+
+  // 2 Колонка
+  .col {
+    flex: 1 0 0%;
+
+    @each $key, $val in $container {
+
+      &-#{$key} {
+        @media (#{$route}-width: map.get($val, "breakpoint") - $z) {
+          flex: 1 0 0%;
+        }
+      }
+
+    }
+
+    &-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    @each $key, $val in $container {
+
+      &-#{$key}-auto {
+        @media (#{$route}-width: map.get($val, "breakpoint") - $z) {
+          flex: 0 0 auto;
+          width: auto;
+        }
+      }
+
+    }
+
+    @for $i from 1 through 12 {
+
+      &-#{$i} {
+        flex: 0 0 auto;
+        width: f.fun-divide($i,12);
+      }
+
+      @each $key, $val in $container {
+
+        &-#{$key}-#{$i} {
+          @media (#{$route}-width: map.get($val, "breakpoint") - $z) {
+            flex: 0 0 auto;
+            width: f.fun-divide($i,12);
+          }
+        }
+
+      }
+    }
+  }
+
+  // 3 Смещение
+  .offset {
+
+    @for $i from 0 through 11 {
+
+      @if $orientation == 'desktop-first' {
+        &-#{$i} {
+          margin-left: f.fun-divide($i,12);
+        }
+      }
+
+      @each $key, $val in $container {
+
+        &-#{$key}-#{$i} {
+          @media (#{$route}-width: map.get($val, "breakpoint") - $z) {
+            margin-left: f.fun-divide($i,12);
+          }
+        }
+
+      }
+    }
+  }
+
+  // 4 Поля
+  .g {
+
+    @for $i from 0 through 5 {
+
+      &-#{$i} {
+        @include gutterXY($i)
+      }
+
+      @each $key, $val in $container {
+
+        &-#{$key}-#{$i} {
+          @media (#{$route}-width:  map.get($val, "breakpoint") - $z) {
+            @include gutterXY($i)
+          }
+        }
+
+      }
+    }
+  }
+
+  .gx {
+
+    @for $i from 0 through 5 {
+
+      &-#{$i} {
+        @include gutterX($i)
+      }
+
+      @each $key, $val in $container {
+
+        &-#{$key}-#{$i} {
+          @media (#{$route}-width:  map.get($val, "breakpoint") - $z) {
+            @include gutterX($i)
+          }
+        }
+
+      }
+    }
+  }
+
+  .gy {
+
+    @for $i from 0 through 5 {
+
+      &-#{$i} {
+        @include gutterY($i)
+      }
+
+      @each $key, $val in $container {
+
+        &-#{$key}-#{$i} {
+          @media (#{$route}-width:  map.get($val, "breakpoint") - $z) {
+            @include gutterY($i)
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+@mixin gutterXY($i) {
+
+  @if $i == 0 {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+  }
+
+  @if $i == 1 {
+    --bs-gutter-x: 4px;
+    --bs-gutter-y: 4px;
+  }
+
+  @if $i == 2 {
+    --bs-gutter-x: 8px;
+    --bs-gutter-y: 8px;
+
+  }
+
+  @if $i == 3 {
+    --bs-gutter-x: 16px;
+    --bs-gutter-y: 16px;
+
+  }
+
+  @if $i == 4 {
+    --bs-gutter-x: 24px;
+    --bs-gutter-y: 24px;
+  }
+
+  @if $i == 5 {
+    --bs-gutter-x: 48px;
+    --bs-gutter-y: 48px;
+  }
+
+}
+
+@mixin gutterX($i) {
+
+  @if $i == 0 {
+    --bs-gutter-x: 0;
+  }
+
+  @if $i == 1 {
+    --bs-gutter-x: 4px;
+  }
+
+  @if $i == 2 {
+    --bs-gutter-x: 8px;
+  }
+
+  @if $i == 3 {
+    --bs-gutter-x: 16px;
+
+  }
+
+  @if $i == 4 {
+    --bs-gutter-x: 24px;
+  }
+
+  @if $i == 5 {
+    --bs-gutter-x: 48px;
+  }
+
+}
+
+@mixin gutterY($i) {
+
+  @if $i == 0 {
+    --bs-gutter-y: 0;
+  }
+
+  @if $i == 1 {
+    --bs-gutter-y: 4px;
+  }
+
+  @if $i == 2 {
+    --bs-gutter-y: 8px;
+  }
+
+  @if $i == 3 {
+    --bs-gutter-y: 16px;
+  }
+
+  @if $i == 4 {
+    --bs-gutter-y: 24px;
+  }
+
+  @if $i == 5 {
+    --bs-gutter-y: 48px;
+  }
+
+}
+
+// min-width | max-width в зависимости от метод разработки " mobile-first | desktop-first"
+@mixin media($breakpoint, $orientation: v.$orientation, $container: v.$container){
+
+  $z: 0;
+  $route: 'min';
+
+  @if $orientation == 'desktop-first' {
+    $z: 1;
+    $route: 'max';
+  }
+
+  @if meta.type-of($breakpoint) == "string" {
+
+    @media (#{$route}-width: map.get(map.get($container, $breakpoint),"breakpoint") - $z) {
+      @content;
+    }
+
+  } @else {
+
+    @media (#{$route}-width: #{$breakpoint}px) {
+      @content;
+    }
+
+  }
+
+}
+
+// min-width and max-width
+@mixin media-section($breakpoint-start, $breakpoint-end, $container: v.$container){
+
+  @if meta.type-of($breakpoint-start) == "string" and meta.type-of($breakpoint-end) == "string" {
+
+    @media (min-width: map.get(map.get($container, $breakpoint-start),"breakpoint")) and (max-width: map.get(map.get($container, $breakpoint-end),"breakpoint") - 1){
+      @content;
+    }
+
+  } @else if meta.type-of($breakpoint-start) == "string" {
+
+    @media (min-width: map.get(map.get($container, $breakpoint-start),"breakpoint")) and (max-width: #{$breakpoint-end}px){
+      @content;
+    }
+
+  } @else if meta.type-of($breakpoint-end) == "string" {
+
+    @media (min-width: #{$breakpoint-start}px) and (max-width: map.get(map.get($container, $breakpoint-end),"breakpoint") - 1){
+      @content;
+    }
+
+  } @else {
+
+    @media (min-width: #{$breakpoint-start}px) and (max-width: #{$breakpoint-end}px){
+      @content;
+    }
+
+  }
+}
+
+// Подключения шрифта
+@mixin fontInclude($font_name, $file_name, $style, $weight, $local) {
+  @font-face {
+    font-family: $font_name;
+    font-style: $style;
+    font-weight: $weight;
+    font-display: swap;
+    src: local($local), url("../fonts/#{$file_name}.woff2") format("woff2"), url("../fonts/#{$file_name}.woff") format("woff");
+  }
+}
+
+// Адаптивная типографика
+@mixin dynamicText($minSizePercent, $maxSize, $minSize, $minWidthPx, $maxWidth, $minWidth) {
+  font-size: calc(#{$minSizePercent} + (#{$maxSize} - #{$minSize}) * (100vw - #{$minWidthPx}) / (#{$maxWidth} - #{$minWidth}));
+}
+// minSizePercent - минимальне значения шрифта в %;
+// maxSize - максимальный размер шрифта;
+// minSize - минимальный размер шрифта;
+// minWidthPx - минимальный ширина viewport в px;
+// maxWidth - максимальная ширина viewport;
+// minWidth - минимальная ширина viewport;
+
+// Адаптивное видео
+@mixin adaptive-video() {
+  position: relative;
+  padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+// Убирает обтекания
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Обнуляет списки
+@mixin list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+

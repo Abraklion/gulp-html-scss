@@ -1,0 +1,28 @@
+@use "../general/variables" as v;
+@use "../general/mixins" as m;
+
+// region " 1 Цвет текста "
+
+.text-color {
+  @include m.rulesBreakpoint(v.$container,(
+          color: v.$primary
+  ),'primary');
+
+  @include m.rulesBreakpoint(v.$container,(
+          color: v.$success
+  ),'success');
+
+  @include m.rulesBreakpoint(v.$container,(
+          color: v.$warning
+  ),'warning');
+
+  @include m.rulesBreakpoint(v.$container,(
+          color: v.$danger
+  ),'danger');
+
+  @include m.rulesBreakpoint(v.$container,(
+          color: v.$dark
+  ),'dark');
+}
+
+// endregion

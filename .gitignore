@@ -1,12 +1,12 @@
 # Gulp
-/node_modules/
-/build/
-/dist/
+node_modules
+build
+dist
 
 # WebStorm
-/.idea/
-/.vscode/
+.idea
+.vscode
 
 # Mac
-/.DS_Store/
+.DS_Store
 Thumbs.db

@@ -1,0 +1,20 @@
+@use "../general/variables" as v;
+@use "../general/mixins" as m;
+
+// region " 1 Выравнивая текста по горизонтали "
+
+.text-align {
+  @include m.rulesBreakpoint(v.$container,(
+          text-align: center
+  ),'center');
+
+  @include m.rulesBreakpoint(v.$container,(
+          text-align: right
+  ),'right');
+
+  @include m.rulesBreakpoint(v.$container,(
+          text-align: left
+  ),'left');
+}
+
+// endregion

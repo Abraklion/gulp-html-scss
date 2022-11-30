@@ -1,0 +1,17 @@
+@use "../general/variables" as v;
+@use "../general/mixins" as m;
+
+.d {
+  @include m.rulesBreakpoint(v.$container,(
+          display: none
+  ),'none');
+
+  @include m.rulesBreakpoint(v.$container,(
+          display: block
+  ),'block');
+
+  @include m.rulesBreakpoint(v.$container,(
+          display: flex
+  ),'flex');
+}
+
