@@ -1,4 +1,0 @@
-@use "../general/variables" as v;
-@use "../general/mixins" as m;
-
-@include m.grid(v.$container);

@@ -26,15 +26,3 @@
 @function fun-letter-spacing($sz, $context:16px) {
   @return math.div(($sz * $context), 1000);
 }
-
-// считает ширину элемента в % от общий ширины блока (для сетки)
-@function fun-divide($count, $context: false) {
-  @if $context {
-
-    @return math.div($count, $context) * 100%;
-
-  } @else {
-
-    @return math.div(100, $count) * 1%;
-  }
-}

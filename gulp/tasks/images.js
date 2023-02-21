@@ -13,11 +13,15 @@ module.exports = function () {
     // Конвертирует в формат webp
     $.gulp.src($.config.paths.images.webp + '**/*.{jpg,png,gif}')
       .pipe($.gp.webp({quality: 80}))
-      .pipe($.gulp.dest($.config.output.pathImg));
+      .pipe($.gulp.dest($.config.output.pathImg.img));
 
     // Просто переносит gif,ico,webp
     $.gulp.src($.config.paths.images.img + '*.{gif,ico,webp}')
-      .pipe($.gulp.dest($.config.output.pathImg));
+      .pipe($.gulp.dest($.config.output.pathImg.img));
+
+    // Просто переносит json (lottie)
+    $.gulp.src($.config.paths.images.lottie)
+      .pipe($.gulp.dest($.config.output.pathImg.lottie));
 
     return $.gulp.src([$.config.paths.images.img + '*.{jpg,png,svg}', $.config.paths.images.webp + '*.{jpg,png}'])
 
@@ -32,6 +36,6 @@ module.exports = function () {
           ]
         })
       ])))
-      .pipe($.gulp.dest($.config.output.pathImg))
+      .pipe($.gulp.dest($.config.output.pathImg.img))
   });
 }

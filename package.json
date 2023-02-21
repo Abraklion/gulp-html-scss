@@ -1,16 +1,17 @@
 {
   "name": "gulp-html-scss",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Сборка работает на HTML и препроцессоре SCSS",
   "main": "index.js",
   "scripts": {
     "dev": "gulp watch",
     "prod": "gulp build",
-    "bx": "gulp build && gulp copyTopLevel"
+    "bxdev": "gulp bx_watch",
+    "bxprod": "gulp build && gulp copyTopLevel"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Abraklion/gulp-html-scss.git"
+    "url": "https://github.com/Abraklion/gulp-html-scss.git"
   },
   "keywords": [
     "Сборка GULP",
@@ -24,14 +25,12 @@
   },
   "homepage": "https://github.com/Abraklion/gulp-html-scss#readme",
   "devDependencies": {
-    "@babel/core": "^7.20.2",
+    "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "autoprefixer": "^10.4.13",
-    "babel": "^6.23.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.3.0",
-    "browser-sync": "^2.27.10",
-    "core-js": "^3.26.1",
+    "babel-loader": "^9.1.2",
+    "browser-sync": "^2.27.11",
+    "core-js": "^3.27.2",
     "del": "^6.1.1",
     "gulp": "^4.0.2",
     "gulp-cheerio": "^1.0.0",
@@ -53,13 +52,14 @@
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-webp": "^4.0.1",
     "panini": "^1.7.2",
-    "sass": "^1.56.1",
+    "sass": "^1.57.1",
+    "vinyl-named": "^1.1.0",
     "webpack": "^5.75.0",
-    "webpack-stream": "^6.1.2"
+    "webpack-stream": "^7.0.0"
   },
   "browserslist": [
-    "defaults",
-    "not IE 11",
-    "maintained node versions"
+    "last 1 version",
+    "> 1%",
+    "not dead"
   ]
 }

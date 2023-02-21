@@ -1,1 +1,3 @@
-console.log("Тест")
+
+console.log('ok')
+

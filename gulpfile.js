@@ -4,6 +4,7 @@ global.$ = {
   gulp: require('gulp'),
   gp: require('gulp-load-plugins')(),
   webpack: require("webpack-stream"),
+  named: require("vinyl-named"),
   browserSync: require('browser-sync'),
   autoprefixer: require('autoprefixer'),
   panini: require('panini'),
@@ -27,7 +28,8 @@ global.$ = {
       images: {
         img: 'src/assets/img/',
         webp: 'src/assets/img/webp/',
-        svg: 'src/assets/img/sprite/**/*.svg'
+        svg: 'src/assets/img/sprite/**/*.svg',
+        lottie: 'src/assets/img/lottie/**/*.json'
       },
       fonts: 'src/assets/fonts/',
       other: 'src/assets/other/'
@@ -36,9 +38,13 @@ global.$ = {
       path: 'dist',
       pathCss: 'dist/assets/css/',
       pathJs: 'dist/js/',
-      pathImg: 'dist/assets/img/',
+      pathImg: {
+        img: 'dist/assets/img/',
+        svg: 'dist/assets/img/sprite/',
+        lottie: 'dist/assets/img/lottie/'
+      },
       pathFonts: 'dist/assets/fonts/',
-      templates: '../templates',
+      templates: '../templates/.default/',
     },
     watch: {
       html: 'src/**/*.html',
@@ -47,7 +53,8 @@ global.$ = {
       images: {
         img: 'src/assets/img/*.{jpg,png,gif,svg,ico,webp}',
         webp: 'src/assets/img/webp/*.{jpg,png,gif}',
-        svg: 'src/assets/img/sprite/**/*.svg'
+        svg: 'src/assets/img/sprite/**/*.svg',
+        lottie: 'src/assets/img/lottie/**/*.json'
       },
       fonts: 'src/assets/fonts/',
       other: 'src/assets/other/'
@@ -62,7 +69,10 @@ $.config.src.forEach(function (path) {
 const build = $.gulp.series('clean', $.gulp.parallel('html','styles','scripts','fonts','images','sprite','copy'));
 const watch = $.gulp.series(build, $.gulp.parallel('serve', 'watcher'));
 
+const bx_watch = $.gulp.series(build, 'copyTopLevel', $.gulp.parallel('watcher','watcher_dist'));
+
 exports.build = build;
 exports.watch = watch;
+exports.bx_watch = bx_watch;
 
 exports.default = watch;

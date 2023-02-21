@@ -5,6 +5,7 @@ module.exports = function () {
   $.gulp.task("scripts", () => {
 
     return $.gulp.src($.config.paths.js + '*.js')
+      .pipe($.named())
       .pipe($.webpack({
         mode: $.config.toggle.mode,
         output: {

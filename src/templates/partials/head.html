@@ -9,3 +9,9 @@
 <meta name="description" content="{{ description }}">
 
 <link rel="stylesheet" href="assets/css/{{ link }}">
+
+{{#ifequal lottiePlayer true}}
+<script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+{{/ifequal}}
+
+<script defer src="js/{{ script }}"></script>

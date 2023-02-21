@@ -32,6 +32,6 @@ module.exports = function () {
       }))
 
       .pipe($.gp.rename('sprite.svg'))
-      .pipe($.gulp.dest($.config.output.pathImg));
+      .pipe($.gulp.dest($.config.output.pathImg.svg));
   });
 }

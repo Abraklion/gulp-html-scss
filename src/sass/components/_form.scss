@@ -1,0 +1,4 @@
+@use "../variables" as v;
+@use "../library/sumbiot/general/mixins/components/form" as mF;
+
+@include mF.form(v.$container,v.$orientation);
