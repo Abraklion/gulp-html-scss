@@ -33,14 +33,17 @@
 
     grid-column-gap: 24px;
     grid-row-gap: 24px;
+
+    & > * {
+      grid-column: span 12;
+    }
+
   }
 
   .#{$prefix}Form__item{
 
-    grid-column: span 12;
-
     &--column {
-      @for $i from 2 through 12 {
+      @for $i from 1 through 12 {
 
         &-#{$i} {
           grid-column: span $i;
@@ -60,17 +63,17 @@
     }
 
     &--order {
-      @for $i from 1 through 10 {
+      @for $i from -1 through 10 {
 
         &-#{$i} {
-          grid-column: span $i;
+          order: $i;
         }
 
         @each $key, $val in $container {
 
           &-#{$key}-#{$i} {
             @media (#{$route}-width: map.get($val, "breakpoint") - $z) {
-              grid-column: span $i;
+              order: $i;
             }
           }
 
