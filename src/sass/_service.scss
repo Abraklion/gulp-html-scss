@@ -18,6 +18,14 @@
   clip: rect(0, 0, 0, 0);
 }
 
+.clip {
+  display: block;
+  width: 100%;
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
 .show {
   display: block;
 }

@@ -1,0 +1,16 @@
+@use "../../variables" as v;
+@use ".." as m;
+
+/*
+  Миксин эфекты
+ */
+
+@mixin effects($container, $orientation: v.$orientation, $prefix: v.$prefix) {
+
+  .#{$prefix}Box-shadow {
+    @include m.rulesBreakpoint($container,(
+      box-shadow: none
+    ),'none', $orientation);
+  }
+
+}

@@ -127,6 +127,10 @@
     ),'16', $orientation);
 
     @include m.rulesBreakpoint($container,(
+      margin-right: 10px
+    ),'10', $orientation);
+
+    @include m.rulesBreakpoint($container,(
       margin-right: 24px
     ),'24', $orientation);
 
@@ -147,6 +151,10 @@
     ),'0', $orientation);
 
     @include m.rulesBreakpoint($container,(
+      margin-top: 10px
+    ),'10', $orientation);
+
+    @include m.rulesBreakpoint($container,(
       margin-top: 16px
     ),'16', $orientation);
 
@@ -157,6 +165,14 @@
     @include m.rulesBreakpoint($container,(
       margin-top: 32px
     ),'32', $orientation);
+
+    @include m.rulesBreakpoint($container,(
+      margin-top: 60px
+    ),'60', $orientation);
+
+    @include m.rulesBreakpoint($container,(
+      margin-top: 100px
+    ),'100', $orientation);
 
     @include m.rulesBreakpoint($container,(
       margin-top: auto
@@ -175,12 +191,24 @@
     ),'16', $orientation);
 
     @include m.rulesBreakpoint($container,(
+      margin-bottom: 10px
+    ),'10', $orientation);
+
+    @include m.rulesBreakpoint($container,(
       margin-bottom: 24px
     ),'24', $orientation);
 
     @include m.rulesBreakpoint($container,(
+      margin-bottom: 28px
+    ),'28', $orientation);
+
+    @include m.rulesBreakpoint($container,(
       margin-bottom: 32px
     ),'32', $orientation);
+
+    @include m.rulesBreakpoint($container,(
+      margin-bottom: 40px
+    ),'40', $orientation);
 
     @include m.rulesBreakpoint($container,(
       margin-bottom: auto

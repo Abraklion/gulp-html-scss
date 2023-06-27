@@ -4,7 +4,6 @@ global.$ = {
   gulp: require('gulp'),
   gp: require('gulp-load-plugins')(),
   webpack: require("webpack-stream"),
-  named: require("vinyl-named"),
   browserSync: require('browser-sync'),
   autoprefixer: require('autoprefixer'),
   panini: require('panini'),

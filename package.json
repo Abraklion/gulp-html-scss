@@ -32,6 +32,7 @@
     "browser-sync": "^2.27.11",
     "core-js": "^3.27.2",
     "del": "^6.1.1",
+    "expose-loader": "^4.1.0",
     "gulp": "^4.0.2",
     "gulp-cheerio": "^1.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -53,9 +54,15 @@
     "gulp-webp": "^4.0.1",
     "panini": "^1.7.2",
     "sass": "^1.57.1",
-    "vinyl-named": "^1.1.0",
-    "webpack": "^5.75.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.7.0",
+    "jquery-ui": "^1.13.2",
+    "jquery-validation": "^1.19.5",
+    "jquery.maskedinput": "^1.4.1",
+    "select2": "^4.1.0-rc.0",
+    "slick-carousel": "^1.8.1"
   },
   "browserslist": [
     "last 1 version",

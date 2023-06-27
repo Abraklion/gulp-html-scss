@@ -1,0 +1,16 @@
+@use "../../variables" as v;
+@use ".." as m;
+
+/*
+  Миксин транцформация текста
+ */
+
+@mixin text-transform($container, $orientation: v.$orientation, $prefix: v.$prefix) {
+
+  .#{$prefix}Text-transform {
+    @include m.rulesBreakpoint($container,(
+      text-transform: none
+    ),'none', $orientation);
+  }
+
+}

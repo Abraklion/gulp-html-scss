@@ -1,0 +1,8 @@
+@use "../general/variables" as v;
+@use "../general/mixins/helpers/text-transform" as mT;
+
+// region " Трансформация текста "
+
+@include mT.text-transform(v.$container,v.$orientation)
+
+// endregion

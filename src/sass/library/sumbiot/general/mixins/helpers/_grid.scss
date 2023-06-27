@@ -19,4 +19,28 @@
     ),'center', $orientation);
   }
 
+  .#{$prefix}G-justify-content{
+    @include m.rulesBreakpoint($container,(
+      justify-content: left
+    ),'left', $orientation);
+  }
+
+  .#{$prefix}G-justify-content{
+    @include m.rulesBreakpoint($container,(
+      justify-content: space-between
+    ),'space-between', $orientation);
+  }
+
+  .#{$prefix}G-row-gap{
+    @include m.rulesBreakpoint($container,(
+      grid-row-gap: 20px
+    ),'20', $orientation);
+  }
+
+  .#{$prefix}G-column-gap{
+    @include m.rulesBreakpoint($container,(
+      grid-column-gap: 20px
+    ),'20', $orientation);
+  }
+
 }

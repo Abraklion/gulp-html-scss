@@ -21,7 +21,7 @@
 
   // 1 Ряд
   .#{$prefix}Row {
-    --bs-gutter-x: 24px;
+    --bs-gutter-x: 20px;
     --bs-gutter-y: 0;
 
     display: flex;
@@ -305,7 +305,7 @@
   }
 
   @if $i == 4 {
-    --bs-gutter-y: 24px;
+    --bs-gutter-y: 20px;
   }
 
   @if $i == 5 {

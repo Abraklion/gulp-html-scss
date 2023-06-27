@@ -34,6 +34,10 @@
     @include m.rulesBreakpoint($container,(
       justify-content: space-evenly
     ),'evenly', $orientation);
+
+    @include m.rulesBreakpoint($container,(
+      justify-content: flex-end
+    ),'end', $orientation);
   }
 
   // 3 По вертикали
