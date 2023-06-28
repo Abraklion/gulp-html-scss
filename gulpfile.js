@@ -6,8 +6,8 @@ global.$ = {
   webpack: require("webpack-stream"),
   browserSync: require('browser-sync'),
   autoprefixer: require('autoprefixer'),
-  panini: require('panini'),
   sass: require("gulp-sass")(require('sass')),
+  fs: require('fs'),
   del: require('del'),
 
   config: {
@@ -21,7 +21,7 @@ global.$ = {
     },
 
     paths: {
-      html: 'src/*.html',
+      html: 'src/*.pug',
       css: 'src/sass/*.scss',
       js: './src/js/',
       images: {
@@ -46,7 +46,7 @@ global.$ = {
       templates: '../templates/.default/',
     },
     watch: {
-      html: 'src/**/*.html',
+      html: 'src/**/*.pug',
       css: 'src/sass/**/*.scss',
       js: 'src/js/**/*.js',
       images: {
