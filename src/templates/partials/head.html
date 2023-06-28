@@ -14,4 +14,6 @@
 <script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 {{/ifequal}}
 
-<script defer src="js/{{ script }}"></script>
+{{#each script}}
+<script defer src="js/{{ this }}"></script>
+{{/each}}
