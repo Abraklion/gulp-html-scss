@@ -1,4 +1,0 @@
-@use "../variables" as v;
-@use "../library/sumbiot/general/mixins/components/grid" as mG;
-
-@include mG.grid(v.$container,v.$orientation);

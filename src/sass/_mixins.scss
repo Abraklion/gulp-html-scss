@@ -6,63 +6,6 @@
 
 //-----===== Миксины ====-----//
 
-// min-width | max-width в зависимости от метод разработки " mobile-first | desktop-first"
-@mixin media($breakpoint, $orientation: v.$orientation, $container: v.$container){
-
-  $z: 0;
-  $route: 'min';
-
-  @if $orientation == 'desktop-first' {
-    $z: 1;
-    $route: 'max';
-  }
-
-  @if meta.type-of($breakpoint) == "string" {
-
-    @media (#{$route}-width: map.get(map.get($container, $breakpoint),"breakpoint") - $z) {
-      @content;
-    }
-
-  } @else {
-
-    @media (#{$route}-width: #{$breakpoint}px) {
-      @content;
-    }
-
-  }
-
-}
-
-// min-width and max-width
-@mixin media-section($breakpoint-start, $breakpoint-end, $container: v.$container){
-
-  @if meta.type-of($breakpoint-start) == "string" and meta.type-of($breakpoint-end) == "string" {
-
-    @media (min-width: map.get(map.get($container, $breakpoint-start),"breakpoint")) and (max-width: map.get(map.get($container, $breakpoint-end),"breakpoint") - 1){
-      @content;
-    }
-
-  } @else if meta.type-of($breakpoint-start) == "string" {
-
-    @media (min-width: map.get(map.get($container, $breakpoint-start),"breakpoint")) and (max-width: #{$breakpoint-end}px){
-      @content;
-    }
-
-  } @else if meta.type-of($breakpoint-end) == "string" {
-
-    @media (min-width: #{$breakpoint-start}px) and (max-width: map.get(map.get($container, $breakpoint-end),"breakpoint") - 1){
-      @content;
-    }
-
-  } @else {
-
-    @media (min-width: #{$breakpoint-start}px) and (max-width: #{$breakpoint-end}px){
-      @content;
-    }
-
-  }
-}
-
 // Подключения шрифта
 @mixin fontInclude($font_name, $file_name, $style, $weight, $local) {
   @font-face {

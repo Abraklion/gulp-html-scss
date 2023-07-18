@@ -3,7 +3,7 @@
 //-----===== Базовые настройки ====-----//
 
 html{
-  font-size: v.$font-size-basic;
+  font-size: v.$font-size-html;
   line-height: v.$line-height-basic;
 }
 
@@ -12,6 +12,7 @@ body {
 
   font-style: v.$font-style-basic;
   font-weight: v.$font-weight-basic;
+  font-size: v.$font-size-body;
   font-family: v.$font-family-basic;
 
   color: v.$black;
@@ -19,12 +20,6 @@ body {
   overflow-wrap: break-word;
   word-wrap: break-word;
 
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 img {

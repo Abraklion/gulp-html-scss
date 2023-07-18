@@ -13,7 +13,12 @@ module.exports = function () {
 
           // каркас общий
           main: {
-            import: './src/js/main.js'
+            import: './src/js/main.js',
+          },
+
+          // bootstrap
+          'bootstrap' : {
+            import : [],
           },
 
           // слайдер
