@@ -48,7 +48,7 @@ global.$ = {
     watch: {
       html: 'src/**/*.html',
       css: 'src/sass/**/*.scss',
-      js: 'src/js/**/*.js',
+      js: 'src/js/**/*.{ts,js}',
       images: {
         img: 'src/assets/img/*.{jpg,png,gif,svg,ico,webp}',
         webp: 'src/assets/img/webp/*.{jpg,png,gif}',

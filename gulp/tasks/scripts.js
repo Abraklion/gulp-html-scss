@@ -4,7 +4,7 @@ module.exports = function () {
 
   $.gulp.task("scripts", () => {
 
-    return $.gulp.src($.config.paths.js + '*.js')
+    return $.gulp.src($.config.paths.js + '*.{ts,js}')
       .pipe($.webpack({
         mode: $.config.toggle.mode,
 
@@ -13,7 +13,7 @@ module.exports = function () {
 
           // каркас общий
           main: {
-            import: './src/js/main.js'
+            import: './src/js/main.ts'
           },
 
           // слайдер
@@ -49,10 +49,22 @@ module.exports = function () {
           },
         },
 
+        /** если есть два файла с одинаковым названием, но разным расширением. выберется файл в порядке extensions **/
+        resolve: {
+          extensions: ['.ts', '.js'],
+        },
+
         watch: false,
         devtool: 'source-map',
         module: {
           rules: [
+            // для ts файлов
+            {
+              test: /\.tsx?$/,
+              use: 'ts-loader',
+              exclude: /node_modules/,
+            },
+
             // для js файлов
             {
               test: /\.m?js$/,
